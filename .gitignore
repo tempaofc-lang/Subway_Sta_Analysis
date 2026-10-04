@@ -1,0 +1,27 @@
+# Local credentials and runtime files
+.env
+.env.*
+!.env.example
+**/config.py
+**/*.pem
+**/*.key
+.venv/
+**/.venv/
+**/.uv-cache/
+**/__pycache__/
+*.py[cod]
+_site/
+# Legacy inputs, unrelated practice work, and API response caches remain local.
+/python practice project/
+last_mile/data/raw/
+# Publish a deliberate set of analysis artifacts only.
+last_mile/data/processed/*
+!last_mile/data/processed/expanded_samples.csv
+!last_mile/data/processed/expanded_entrances.csv
+!last_mile/data/processed/expanded_accessibility.csv
+!last_mile/data/processed/expanded_group_summary.csv
+!last_mile/data/processed/expanded_campus_gate_review.csv
+last_mile/output/*
+!last_mile/output/expanded_results.json
+!last_mile/output/current_expansion_gate.json
+!last_mile/output/扩展站点步行接驳分析报告.md

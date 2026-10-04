@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="referrer" content="strict-origin-when-cross-origin"><meta name="viewport" content="width=device-width,initial-scale=1"><title>南昌地铁 · 步行接驳研究</title>
+<style>
+:root{--paper:#f6f5ef;--ink:#233632;--muted:#58675f;--line:#d7ddd3;--green:#24594b;--red:#b64f43}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 'Microsoft YaHei','PingFang SC',sans-serif;font-variant-numeric:tabular-nums}header{padding:25px 4%;border-bottom:1px solid var(--line)}h1{font-size:28px;line-height:1.4;margin:0 0 6px}p{margin:8px 0;color:var(--muted);overflow-wrap:anywhere}header p{max-width:75ch}main{padding:20px 4%}.controls{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:20px}label{display:flex;gap:8px;align-items:center;flex-wrap:wrap}select{font:inherit;color:var(--ink);background:#fffefa;border:1px solid #b6c0b6;border-radius:4px;padding:8px;min-height:44px;max-width:100%}button{font:inherit;cursor:pointer}button:focus-visible,select:focus-visible,.map-point:focus-visible{outline:3px solid #24594b;outline-offset:3px}.map-point{cursor:pointer}.map-point:focus-visible .point-shape{stroke:#233632;stroke-width:4}.layout{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(320px,1fr);gap:26px}section,aside{min-width:0}#map{width:100%;background:#eaf0e4;border:1px solid var(--line);display:block}.legend{display:flex;gap:12px 18px;flex-wrap:wrap;font-size:14px;margin:10px 0}.legend span{display:inline-flex;align-items:center;gap:6px}.legend svg{width:14px;height:14px;flex:none}.map-note,#location{font-size:14px}#location{color:var(--ink)}aside{max-height:790px;overflow:auto;scrollbar-color:#b6c0b6 var(--paper);scrollbar-width:thin}h2{font-size:20px;margin:0 0 8px}#stats{padding:0 0 15px;border-bottom:1px solid var(--line)}table{width:100%;border-collapse:collapse;font-size:14px;table-layout:fixed}th,td{text-align:left;border-bottom:1px solid var(--line);padding:9px 5px;vertical-align:top;overflow-wrap:anywhere}th:first-child{width:58%}td button{max-width:100%;min-height:42px;border:0;background:none;text-align:left;color:var(--green);padding:3px 5px;text-decoration:underline;text-underline-offset:3px}td button:hover{background:#e6ede0}td button[aria-pressed="true"]{color:var(--ink);font-weight:700;background:#e6ede0}tr.selected{background:#edf1e7}.sample-kind{display:block;color:var(--muted);font-size:12px;padding-left:5px}.detail{padding:18px 0;border-top:1px solid var(--line);margin-top:20px}.detail p{max-width:70ch}.steps{font-size:14px}footer{padding:20px 4%;font-size:14px;color:var(--muted);border-top:1px solid var(--line)}::selection{background:#d9b16c;color:#233632}@media(max-width:850px){.layout{grid-template-columns:minmax(0,1fr)}aside{max-height:none}header{padding:18px 4%}h1{font-size:24px}.controls{gap:12px 16px}.controls label{flex:1 1 150px;justify-content:space-between}select{padding:6px}#map{max-height:480px}.legend{font-size:14px}th:first-child{width:55%}}
+.map-layers{border:0;padding:0;margin:0 0 10px;display:flex;gap:4px 18px;flex-wrap:wrap}.map-layers legend{font-size:14px;color:var(--muted)}.map-layers label{min-height:44px;font-size:14px}.map-layers input{accent-color:var(--green);width:18px;height:18px}.map-attribution{font-size:12px;margin:6px 0}.map-attribution a{color:var(--green)}#tile-status{font-size:14px;margin:4px 0}#layer-points text{paint-order:stroke;stroke:#fffefa;stroke-width:3;stroke-linejoin:round}</style></head><body>
+<header><h1>南昌地铁步行接驳</h1><p id="scope">站点样本与导航路线 · 分析快照</p><p>本轮暂不考虑门禁与临时封路，以导航路线估算步行接驳。以高校入口字段作为大学校门代理，单独展示学生通勤起点。</p></header>
+<main><div class="controls"><label>站点<select id="station"></select></label><label>通勤组<select id="group"><option value="all">全部样本</option><option value="student">学生通勤</option><option value="resident">居民通勤</option><option value="other">其他目的地</option></select></label><label>步行时限<select id="threshold"><option value="10">10 分钟</option><option value="15">15 分钟</option></select></label><label>步速<select id="speed"><option value="4.5">4.5 km/h</option><option value="3.5">3.5 km/h</option></select></label></div>
+<div class="layout"><section aria-label="步行路线地图"><fieldset class="map-layers"><legend>地图图层</legend><label><input id="show-base" type="checkbox" checked>道路底图</label><label><input id="show-routes" type="checkbox" checked>步行路径</label><label><input id="show-points" type="checkbox" checked>起点与地铁口</label><label><input id="show-grid" type="checkbox">200 米网格</label></fieldset><p id="location"></p><svg id="map" viewBox="0 0 850 650" role="group" aria-label="可选择的通勤起点、地铁入口与步行路线"></svg><p class="map-attribution">底图 © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a> · <a href="https://www.openstreetmap.org/fixthemap" target="_blank" rel="noopener">报告底图问题</a></p><p id="tile-status" role="status"></p><div class="legend"><span><svg aria-hidden="true"><circle cx="7" cy="7" r="5" fill="#24594b"/></svg>模型时限内</span><span><svg aria-hidden="true"><circle cx="7" cy="7" r="5" fill="#b64f43"/></svg>模型超时限</span><span><svg aria-hidden="true"><circle cx="7" cy="7" r="5" fill="#697772"/></svg>路线待核查</span><span><svg aria-hidden="true"><rect x="3" y="3" width="8" height="8" fill="#233632"/></svg>候选地铁口</span><span><svg aria-hidden="true"><path d="M7 1L13 7L7 13L1 7Z" fill="#fffefa" stroke="#233632" stroke-width="2"/></svg>大学入口代理 · 学生通勤</span></div><p class="map-note">分析数据保持 GCJ-02；地图显示时近似转换为 WGS84，与道路底图统一投影。转换与底图更新可能造成小幅偏差，仅用于路线辨识。北向朝上，网格间隔 200 米；不展示连续等时圈。</p></section>
+<aside><h2>通勤样本比较</h2><p id="stats" aria-live="polite"></p><table aria-label="当前站点与通勤组的步行接驳估算"><thead><tr><th>样本起点／目的地</th><th>模型时间</th><th>结果</th></tr></thead><tbody id="rows"></tbody></table><div id="detail" class="detail" aria-live="polite">选择样本查看地铁入口与路线依据。</div><p>高校入口代理代表学生通勤的出发点，不计入住宅人口。样本不代表居民或学生人数、客流，也不能估计全站总体覆盖率。通勤组筛选仅改变展示与当前样本统计。</p></aside></div></main>
+<footer>来源：高德开放平台 POI 与步行规划；入口类别辅以公开运营资料。距离按导航估算，模型时间按所选步速计算，不含信号灯等待。原始请求及核验清单保留在本地工作区。路线与统计可离线打开；道路底图需联网并通过 HTTP(S) 页面访问，无需密钥。</footer>
+<script>
+const DATA=__DATA__, $=id=>document.getElementById(id);let active=null;
+const sampleById=new Map(DATA.samples.map(s=>[s.sample_id,s]));
+const el=(tag,attrs={})=>{const n=document.createElementNS('http://www.w3.org/2000/svg',tag);Object.entries(attrs).forEach(([k,v])=>n.setAttribute(k,v));return n};
+const groupOf=s=>{const b=sampleById.get(s.sample_id)||{},g=String(s.commuter_group||b.commuter_group||s.sample_role||b.sample_role||'');return /student|学生|大学校门|university_gate/i.test(g)?'student':/resident|居民/i.test(g)?'resident':'other'};
+const student=s=>groupOf(s)==='student';
+const extended=s=>(s.selection_scope||sampleById.get(s.sample_id)?.selection_scope)==='student_gate_extended_radius';
+const color=s=>({model_covered:'#24594b',model_not_covered:'#b64f43',unknown:'#697772'})[s.model_status]||'#697772';
+const status=s=>({model_covered:'时限内',model_not_covered:'超时限',unknown:'待核查'})[s.model_status]||'待核查';
+const finitePoint=p=>Array.isArray(p)&&p.length>=2&&Number.isFinite(+p[0])&&Number.isFinite(+p[1]);
+const matches=s=>$('group').value==='all'||groupOf(s)===$('group').value;
+const stations=[...new Set(DATA.samples.map(s=>s.station))];for(const name of stations){const o=document.createElement('option');o.value=name;o.textContent=name;$('station').append(o)}
+const snapshotDate=DATA.updated_at_utc?new Date(DATA.updated_at_utc):null;
+const snapshotLabel=snapshotDate&&!Number.isNaN(snapshotDate.getTime())?snapshotDate.toLocaleDateString('zh-CN',{timeZone:'Asia/Shanghai',year:'numeric',month:'long',day:'numeric'}):'';
+$('scope').textContent=`${stations.length} 站通勤样本与导航路线 · ${snapshotLabel?snapshotLabel+' ':''}分析快照`;
+function current(){return DATA.scenarios.filter(s=>s.station===$('station').value&&+s.speed_kmh===+$('speed').value&&+s.threshold_min===+$('threshold').value&&matches(s))}
+
+// Public configuration hook for future providers; do not put analysis API secrets here.
+const MAP_CONFIG={tileUrl:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',maxZoom:17};
+const onlinePage=/^https?:$/.test(location.protocol);
+if(!onlinePage){$('show-base').checked=false;$('show-base').disabled=true;}
+const PI=Math.PI, R=6378137;
+function gcjOffset(lng,lat){
+ const x=lng-105,y=lat-35;
+ let a=-100+2*x+3*y+.2*y*y+.1*x*y+.2*Math.sqrt(Math.abs(x));
+ let b=300+x+2*y+.1*x*x+.1*x*y+.1*Math.sqrt(Math.abs(x));
+ const common=(20*Math.sin(6*x*PI)+20*Math.sin(2*x*PI))*2/3;
+ a+=common+(20*Math.sin(y*PI)+40*Math.sin(y*PI/3))*2/3+(160*Math.sin(y*PI/12)+320*Math.sin(y*PI/30))*2/3;
+ b+=common+(20*Math.sin(x*PI)+40*Math.sin(x*PI/3))*2/3+(150*Math.sin(x*PI/12)+300*Math.sin(x*PI/30))*2/3;
+ const rad=lat*PI/180,magic=1-.00669342162296594323*Math.sin(rad)**2,root=Math.sqrt(magic);
+ return [b*180/(6378245/root*Math.cos(rad)*PI),a*180/(6378245*(1-.00669342162296594323)/(magic*root)*PI)];
+}
+function displayWgs(p){
+ const lng=+p[0],lat=+p[1];if(lng<72.004||lng>137.8347||lat<.8293||lat>55.8271)return[lng,lat];
+ let x=lng,y=lat;for(let i=0;i<5;i++){const d=gcjOffset(x,y);x-=x+d[0]-lng;y-=y+d[1]-lat;}return[x,y];
+}
+function mercator(p){const [lng,lat]=displayWgs(p);return[R*lng*PI/180,R*Math.log(Math.tan(PI/4+lat*PI/360))];}
+let mapRevision=0;
+function tileLayer(svg,projection){
+ const revision=++mapRevision,status=$('tile-status');
+ if(!$('show-base').checked){status.textContent=onlinePage?'道路底图已关闭；可勾选道路底图查看街道。':'本地文件显示路线示意；通过网站或本地 HTTP 服务打开可启用道路底图。';return;}
+ const {center,ground,scale,xmin,ymin}=projection;
+ const px=world=>[30+((world[0]-center[0])*ground-xmin)*scale,610-((world[1]-center[1])*ground-ymin)*scale];
+ const worldAt=(x,y)=>[center[0]+((x-30)/scale+xmin)/ground,center[1]+((610-y)/scale+ymin)/ground];
+ const z=Math.max(1,Math.min(MAP_CONFIG.maxZoom,Math.ceil(Math.log2(2*PI*R*ground*scale/256)))),span=2*PI*R/2**z;
+ const lo=worldAt(0,650),hi=worldAt(850,0),left=Math.floor((lo[0]+PI*R)/span),right=Math.floor((hi[0]+PI*R)/span),top=Math.floor((PI*R-hi[1])/span),bottom=Math.floor((PI*R-lo[1])/span);
+ let loaded=0,failed=0,total=(right-left+1)*(bottom-top+1);status.textContent='道路底图加载中；路径与样本可正常选择。';
+ const update=()=>{if(revision!==mapRevision)return;status.textContent=failed?`部分道路底图未加载（${failed}/${total}）；路径与统计仍可用，可关闭底图查看示意。`:loaded===total?'道路底图已加载 · 起点、地铁口和路径已统一到显示坐标。':'道路底图加载中；路径与样本可正常选择。';};
+ setTimeout(()=>{if(revision===mapRevision && loaded+failed<total)status.textContent='道路底图加载较慢；路径与统计仍可用，可关闭底图查看示意。';},12000);
+ for(let x=left;x<=right;x++)for(let y=top;y<=bottom;y++){
+ const [sx,sy]=px([x*span-PI*R,PI*R-y*span]),size=span*ground*scale;
+ const tile=el('image',{x:sx,y:sy,width:size+.15,height:size+.15,preserveAspectRatio:'none',href:MAP_CONFIG.tileUrl.replace('{z}',z).replace('{x}',x).replace('{y}',y)});
+ tile.onload=()=>{loaded++;update()};tile.onerror=()=>{failed++;update()};svg.append(tile);
+ }
+}
+function applyLayers(){for(const [id,control] of [['layer-base','show-base'],['layer-grid','show-grid'],['layer-routes','show-routes'],['layer-points','show-points']]){const layer=$(id);if(layer)layer.style.display=$(control).checked?'':'none';}}
+
+function draw(){
+ const focused=document.activeElement?.dataset?.sample,focusSurface=document.activeElement?.dataset?.surface;
+ const station=$('station').value,scenarios=current(),stationSamples=DATA.samples.filter(s=>s.station===station);
+ const exits=DATA.entrances.filter(e=>e.station===station||e.station.startsWith(station+'(')||e.station.startsWith(station+'（'));
+ const routes=DATA.routes.filter(r=>r.station===station),all=[...stationSamples.map(s=>[+s.lng,+s.lat]),...exits.map(e=>[+e.lng,+e.lat]),...routes.flatMap(r=>r.polyline||[])].filter(finitePoint);
+ const svg=$('map');svg.replaceChildren();
+ if(all.length){
+ const lon=all.reduce((a,p)=>a+ +p[0],0)/all.length,lat=all.reduce((a,p)=>a+ +p[1],0)/all.length,center=mercator([lon,lat]),ground=Math.cos(displayWgs([lon,lat])[1]*PI/180),m=p=>{const q=mercator(p);return[(q[0]-center[0])*ground,(q[1]-center[1])*ground]};
+ const pts=all.map(m),xmin=Math.min(...pts.map(p=>p[0]))-130,xmax=Math.max(...pts.map(p=>p[0]))+130,ymin=Math.min(...pts.map(p=>p[1]))-130,ymax=Math.max(...pts.map(p=>p[1]))+130;
+ const scale=Math.min(790/(xmax-xmin),580/(ymax-ymin)),xy=p=>{const [x,y]=m(p);return[30+(x-xmin)*scale,610-(y-ymin)*scale]};
+ const baseLayer=el('g',{id:'layer-base',opacity:.76}),gridLayer=el('g',{id:'layer-grid'}),routeLayer=el('g',{id:'layer-routes'}),pointLayer=el('g',{id:'layer-points'});svg.append(baseLayer,gridLayer,routeLayer,pointLayer);tileLayer(baseLayer,{center,ground,scale,xmin,ymin});
+ $('location').textContent=`${station} · 图幅中心（WGS84）约 ${displayWgs([lon,lat])[0].toFixed(4)}°E，${displayWgs([lon,lat])[1].toFixed(4)}°N · 通勤组共用图幅`;
+ for(let x=Math.ceil(xmin/200)*200;x<xmax;x+=200){const a=30+(x-xmin)*scale;gridLayer.append(el('line',{x1:a,y1:20,x2:a,y2:610,stroke:'#d3ddd0','stroke-width':1}))}
+ for(let y=Math.ceil(ymin/200)*200;y<ymax;y+=200){const a=610-(y-ymin)*scale;gridLayer.append(el('line',{x1:30,y1:a,x2:820,y2:a,stroke:'#d3ddd0','stroke-width':1}))}
+ for(const s of scenarios){const r=routes.find(r=>r.request_id===s.best_request_id),points=(r?.polyline||[]).filter(finitePoint);if(!points.length)continue;const linePoints=points.map(p=>xy(p).join(',')).join(' ');routeLayer.append(el('polyline',{points:linePoints,fill:'none',stroke:'#fffefa','stroke-width':s.sample_id===active?7:5,'stroke-linejoin':'round','stroke-linecap':'round',opacity:active&&active!==s.sample_id?.3:.95}));routeLayer.append(el('polyline',{points:linePoints,fill:'none',stroke:color(s),'stroke-width':s.sample_id===active?5:3,'stroke-linejoin':'round','stroke-linecap':'round',opacity:active&&active!==s.sample_id?.3:.9}))}
+ for(const e of exits){if(!finitePoint([+e.lng,+e.lat]))continue;const [x,y]=xy([+e.lng,+e.lat]);pointLayer.append(el('rect',{x:x-4,y:y-4,width:8,height:8,fill:'#233632'}));const text=el('text',{x:x+7,y:y-6,'font-size':12,fill:'#233632'});text.textContent=e.entrance_label||e.name||'';pointLayer.append(text)}
+ for(const s of scenarios){if(!finitePoint([+s.lng,+s.lat]))continue;const [x,y]=xy([+s.lng,+s.lat]),point=el('g',{transform:`translate(${x},${y})`,class:'map-point',role:'button',tabindex:0,'aria-label':`${s.name}，${student(s)?'学生通勤入口代理，':''}${status(s)}`,'aria-pressed':s.sample_id===active,'data-sample':s.sample_id,'data-surface':'map'});point.append(el('circle',{r:16,fill:'transparent'}));const radius=s.sample_id===active?9:7,shape=student(s)?el('path',{d:`M0 ${-radius}L${radius} 0L0 ${radius}L${-radius} 0Z`}):el('circle',{r:s.sample_id===active?8:5});shape.setAttribute('class','point-shape');shape.setAttribute('fill',color(s));shape.setAttribute('stroke','#fffefa');shape.setAttribute('stroke-width',2);point.append(shape);point.onclick=()=>choose(s);point.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose(s)}};pointLayer.append(point)}
+ svg.append(el('rect',{x:26,y:612,width:200*scale+25,height:30,fill:'#fffefa',opacity:.92}));svg.append(el('rect',{x:796,y:12,width:38,height:45,fill:'#fffefa',opacity:.92}));svg.append(el('line',{x1:35,y1:630,x2:35+200*scale,y2:630,stroke:'#233632','stroke-width':3}));const label=el('text',{x:35,y:624,'font-size':13});label.textContent='200 米';svg.append(label);svg.append(el('path',{d:'M815 38L810 50L815 47L820 50Z',fill:'#233632'}));const north=el('text',{x:815,y:30,'text-anchor':'middle','font-size':13});north.textContent='北';svg.append(north);
+ }else{$('location').textContent='当前站点没有可用坐标。';const text=el('text',{x:40,y:80,'font-size':20});text.textContent='暂无路线数据';svg.append(text)}
+ applyLayers();
+ const covered=scenarios.filter(s=>s.model_status==='model_covered').length,unknown=scenarios.filter(s=>!['model_covered','model_not_covered'].includes(s.model_status)).length,nStudent=scenarios.filter(student).length,nExtended=scenarios.filter(extended).length;
+ $('stats').textContent=`${scenarios.length} 个样本 · 模型时限内 ${covered} 个 · 超时限 ${scenarios.length-covered-unknown} 个 · 待核查 ${unknown} 个。${nStudent?`其中学生通勤入口代理 ${nStudent} 个。`:''}${nExtended?`含 ${nExtended} 个 1.5 km 扩展筛选样本，其余样本为 1 km 主筛选。`:''}`;
+ $('rows').replaceChildren();for(const s of scenarios){const tr=document.createElement('tr'),td=document.createElement('td'),button=document.createElement('button');tr.classList.toggle('selected',s.sample_id===active);button.textContent=s.name;button.dataset.sample=s.sample_id;button.dataset.surface='table';button.setAttribute('aria-pressed',s.sample_id===active);button.onclick=()=>choose(s);td.append(button);const kind=document.createElement('span');kind.className='sample-kind';kind.textContent=student(s)?'大学入口代理 · 学生通勤起点'+(extended(s)?' · 1.5 km 扩展筛选':''):s.category||'普通目的地';td.append(kind);const td2=document.createElement('td');td2.textContent=s.best_time_min!==''&&s.best_time_min!=null?Number(s.best_time_min).toFixed(1)+' 分钟':'—';const td3=document.createElement('td');td3.textContent=status(s);tr.append(td,td2,td3);$('rows').append(tr)}
+ if(!scenarios.length){const tr=document.createElement('tr'),td=document.createElement('td');td.colSpan=3;td.textContent='当前站点无此通勤组样本，请切换站点或选择全部样本。';tr.append(td);$('rows').append(tr)}
+ if(focused){for(const n of document.querySelectorAll('[data-sample]'))if(n.dataset.sample===focused&&n.dataset.surface===focusSurface){n.focus({preventScroll:true});break}}
+}
+function choose(s){active=s.sample_id;draw();$('detail').replaceChildren();const h=document.createElement('h2');h.textContent=s.name;const p=document.createElement('p');p.textContent=`${student(s)?'学生通勤起点 · 大学入口代理':'目的地类别：'+(s.category||'普通目的地')}。到 ${s.best_entrance||'待核查入口'} 的最短有效模型路线 ${s.best_distance_m||'未知'} 米；有效路线 ${s.valid_entrances??'—'}/${s.expected_entrances??'—'}。`;const q=document.createElement('p');q.textContent=student(s)?'以此高校入口字段作为学生出发点（校门代理，未确认独立门 POI），估算到地铁入口的接驳；不能将校门数量解释为住宅人口或学生人数。本轮暂不考虑门禁和临时封路。':'目的地到达点沿用接口入口字段与本地整理记录。本轮暂不考虑门禁和临时封路，导航路线仍是模型估算。';if(extended(s))q.textContent+=' 本点筛选半径放宽至 1.5 km，属于扩展情景；主样本筛选半径为 1 km。';const r=DATA.routes.find(r=>r.request_id===s.best_request_id),steps=document.createElement('p');steps.className='steps';steps.textContent=r?'导航指引：'+(r.steps||[]).map(step=>step.instruction).filter(Boolean).join('；'):'当前无通过质量检查的导航路线。';$('detail').append(h,p,q,steps)}
+for(const id of ['show-base','show-grid','show-routes','show-points'])$(id).onchange=()=>{if(id==='show-base')draw();else applyLayers()};
+for(const id of ['station','group','threshold','speed'])$(id).onchange=()=>{active=null;$('detail').textContent='选择样本查看地铁入口与路线依据。';draw()};draw();
+</script></body></html>
+
+

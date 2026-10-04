@@ -1,0 +1,6 @@
+﻿station,campus_poi_id,campus_name,campus_center_distance_m,campus_entrance_field,campus_entrance_distance_m,independent_parent_matched_gate_candidates,gate_search_returned,bus_stop_not_gate_count,in_primary_1000m_frame,review_basis,selected,selected_extended_radius
+师大南路,B0JBKZMCFR,江西师范大学(青山湖校区),351.94,"115.923758,28.674344",55.43,0,25,0,True,大学父POI入口字段是校区入口代理；不使用公交站或内部学院点；尚未现场确认校门,True,False
+师大南路,B0GKLZI43U,江西开放大学(东湖校区),469.78,"115.926914,28.678055",519.48,0,1,0,True,大学父POI入口字段是校区入口代理；不使用公交站或内部学院点；尚未现场确认校门,True,False
+师大南路,B031704Q8U,江西水利电力大学(彭桥校区),1088.26,"115.933724,28.674556",930.66,0,21,0,True,大学父POI入口字段是校区入口代理；不使用公交站或内部学院点；尚未现场确认校门,False,False
+师大南路,B0317042KW,南昌大学(青山湖校区北区),1750.58,"115.937276,28.681951",1549.66,0,25,1,False,大学父POI入口字段是校区入口代理；不使用公交站或内部学院点；尚未现场确认校门,False,False
+学府大道东,B031704SPE,南昌航空大学(前湖校区),1522.7,"115.828786,28.656839",1043.47,0,75,5,False,大学父POI入口字段是校区入口代理；不使用公交站或内部学院点；尚未现场确认校门,True,True

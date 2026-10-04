@@ -1,0 +1,8 @@
+{
+  "assumption": "ignore_access_control_temporary_closures",
+  "route_pass_rate": 1.0,
+  "model_expansion_gate_pass": true,
+  "physical_access_assumed_for_scenario": true,
+  "station_count": 6,
+  "student_gate_samples": 4
+}

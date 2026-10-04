@@ -1,0 +1,6 @@
+data/raw/
+.env
+__pycache__/
+output/browser_*/
+output/qa_profile_*/
+output/browser_qa.html
