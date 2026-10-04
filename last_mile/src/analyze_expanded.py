@@ -1,4 +1,4 @@
-"""Resumable six-station model expansion with bounded requests and raw evidence."""
+"""Resumable multi-station model expansion with bounded requests and raw evidence."""
 import argparse
 import hashlib
 import json
@@ -149,6 +149,8 @@ def collect(budget=180):
 
 def summarize():
     data = json.loads((ROOT / 'output/expanded_routes.json').read_text(encoding='utf-8'))
+    if not data.get('collection_completed') or len(data['routes']) != data['expected_routes']:
+        raise RuntimeError('Route collection incomplete; preserve the last validated result and resume collection first')
     # Refresh provenance-only edits made while collection was running. A changed
     # coordinate or candidate set must go through collection and cache matching.
     latest_samples, latest_exits = inputs()

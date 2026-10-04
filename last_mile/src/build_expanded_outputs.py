@@ -1,11 +1,13 @@
 """Main-agent integration: publish conditional model results with group sizes."""
 import json
 from collections import Counter
+from datetime import datetime, timedelta, timezone
 from audit_local import ROOT, write_csv
 
 
 def main():
     data=json.loads((ROOT/'output/expanded_results.json').read_text(encoding='utf-8'))
+    analysis_date=datetime.fromisoformat(data['updated_at_utc']).astimezone(timezone(timedelta(hours=8))).date().isoformat()
     aliases={'resident':'居民通勤','student':'学生通勤','other':'其他目的地'}
     for s in data['samples']+data['scenarios']:
         s['commuter_group']=aliases.get(s.get('commuter_group'),s.get('commuter_group','其他目的地'))
@@ -35,7 +37,7 @@ def main():
     valid=sum(r['status']=='model_route' for r in data['routes'])
     rate=valid/len(data['routes']) if data['routes'] else 0
     lines=['# 南昌地铁步行接驳：扩展站点与学生通勤情景','',
-           '日期：2026-10-04。根据用户最新要求，暂不考虑门禁、临时封路及入口临时关闭，选定地图入口在本情景中视为可使用。其他数据缺失或路线几何异常仍保留未知。','',
+           f'分析更新日期：{analysis_date}。既有站点复用历史快照，此日期不代表全部数据重新采集。暂不考虑门禁、临时封路及入口临时关闭，选定地图入口在本情景中视为可使用。其他数据缺失或路线几何异常仍保留未知。','',
            f'范围：{len(stations)}个站点、{len(data["samples"])}个样本、{len(college)}个高校入口学生通勤代表点，共{len(data["routes"])}条路线。站点：'+ '、'.join(stations)+'。','',
            '## 样本与方法','',
            '居民区、学生通勤和其他目的地分别归组。本轮使用大学/校区父POI的入口字段作为大学校门代表点，未通过独立门POI或现场确认其实体校门位置；来源等级保留为接口入口代理。它代表学生从校园进入城市路网的起点，校内宿舍至校门距离不计入；不把学院门口当作独立校区，不用校门或POI个数估计人口。单个校区的不同校门若均保留，按门记录，报告注明它们共享校区。',
@@ -49,6 +51,16 @@ def main():
         a=next(s for s in summaries if s['station']==station and s['commuter_group']=='全部样本' and s['speed_kmh']==4.5 and s['threshold_min']==10)
         b=next(s for s in summaries if s['station']==station and s['commuter_group']=='全部样本' and s['speed_kmh']==4.5 and s['threshold_min']==15)
         lines.append(f'|{station}|{a["samples"]}|{a["model_covered"]}|{b["model_covered"]}|{a["unknown"]}|{b["unknown"]}|')
+    round_stations = [name for name in ['奥体中心', '谢家村', '双港'] if name in stations]
+    if round_stations:
+        round_samples = [row for row in data['samples'] if row['station'] in round_stations]
+        round_routes = [row for row in data['routes'] if row['station'] in round_stations]
+        lines.extend(['', '## 本轮新增三站', '',
+            '新增' + '、'.join(round_stations) + f'，共{len(round_samples)}条站点—起点样本、{len(round_routes)}条路线。三站父POI详情与原站表均确认属于1号线；入口采用编号及父ID匹配，不把地图收录等同现场开放。',
+            '新增样本按住宅4、办公2、学生最多2的配额抽取，并核对POI主类型；兼类餐馆、商户、旅馆、校园宿舍、中专及内部培训机构不作为对应类型的替代样本。居民与办公入口距站中心最多1公里，学生最多1.5公里。',
+            '旧6站沿用上一轮快照；新增站采用本轮采样。轮次间采集时间与分类核验程度不同，不据此做总体覆盖率或因果推断。高校入口均仍为父POI字段代理，未经独立校门或现场确认。',
+            '同一校园入口可分别作为不同站点的接驳样本；学生样本条数不等于独立校园数量，跨站汇总不用于估计学生人数。',
+            '线路参考：[政府公布的1号线车站表](https://xhq.nc.gov.cn/xhqrmzf/xzxh/201708/f2f038cf937d476984fdbb5b0c032d0c.shtml)；站点和入口位置以本轮保存的地图API证据为准。'])
     lines.extend(['','## 学生通勤起点','',
                   '|站点|校门/校区代表点|样本依据|10分钟模型结果|15分钟模型结果|',
                   '|---|---|---|---|---|'])

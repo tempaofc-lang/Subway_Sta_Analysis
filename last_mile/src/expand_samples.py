@@ -148,14 +148,15 @@ def university_candidates(c, station):
     return pois + gates
 
 
-def university_samples(c, station, discovered):
+def university_samples(c, station, discovered, *, radius_override=None, include_colleges=False):
     name = normalize(station['station'])
     origin = (float(station['lng']),float(station['lat']))
     parents = {p['id']:p for p in discovered if '141201' in string(p,'typecode')
-               and not string(p,'parent') and not any(w in p.get('name','') for w in ['学院','医院','成教'])}
+               and not string(p,'parent') and not any(w in p.get('name','') for w in
+                   (['医院','成教'] if include_colleges else ['学院','医院','成教']))}
     selected=[]
     for p in parents.values():
-        radius = 1500 if name=='学府大道东' else 1000
+        radius = radius_override if radius_override is not None else (1500 if name=='学府大道东' else 1000)
         # Examine the named university's actual gate objects, never bus stops or department doors.
         keyword = p['name'].replace('(',' ').replace(')',' ') + ' 门'
         gates,rid,when = c.query('/place/text', {'keywords':keyword,'city':'360100',
@@ -173,7 +174,7 @@ def university_samples(c, station, discovered):
             gate_type='出入口' in string(gate,'type') or '大门' in string(gate,'type')
             gate_name=bool(re.search(r'(东|南|西|北|[一二三四五六七八九]|[0-9]+)门',gate.get('name','')))
             if (point and exact_parent and gate_type and gate_name and
-                not any(w in gate['name'] for w in ['公交','停车','学院','宿舍']) and distance(origin,point)<=radius):
+                not any(w in gate['name'] for w in (['公交','停车','宿舍'] if include_colleges else ['公交','停车','学院','宿舍'])) and distance(origin,point)<=radius):
                 candidates.append((gate,point,'university_gate_poi_parent_matched',rid))
         # The campus parent entrance field is usable as a declared map proxy when there is no independent gate.
         point=coordinates(string(p,'entr_location'))
