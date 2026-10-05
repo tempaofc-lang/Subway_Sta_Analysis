@@ -40,7 +40,7 @@ def main():
            f'分析更新日期：{analysis_date}。既有站点复用历史快照，此日期不代表全部数据重新采集。暂不考虑门禁、临时封路及入口临时关闭，选定地图入口在本情景中视为可使用。其他数据缺失或路线几何异常仍保留未知。','',
            f'范围：{len(stations)}个站点、{len(data["samples"])}个样本、{len(college)}个高校入口学生通勤代表点，共{len(data["routes"])}条路线。站点：'+ '、'.join(stations)+'。','',
            '## 样本与方法','',
-           '居民区、学生通勤和其他目的地分别归组。本轮使用大学/校区父POI的入口字段作为大学校门代表点，未通过独立门POI或现场确认其实体校门位置；来源等级保留为接口入口代理。它代表学生从校园进入城市路网的起点，校内宿舍至校门距离不计入；不把学院门口当作独立校区，不用校门或POI个数估计人口。单个校区的不同校门若均保留，按门记录，报告注明它们共享校区。',
+           '居民区、学生通勤和其他目的地分别归组。高校起点按来源区分独立门POI地图候选与大学/校区父POI入口字段代理；两者均未经过现场开放核验，具体依据列于学生通勤表。它代表学生从校园进入城市路网的起点，校内宿舍至校门距离不计入；不把学院门口当作独立校区，不用校门或POI个数估计人口。单个校区的不同校门若均保留，按门记录，报告注明它们共享校区。',
            '采用同源GCJ-02的目的地入口 → 地铁各基础入口路线，选通过几何检查的最短距离。4.5 km/h为主情景，3.5 km/h为敏感性情景；10与15分钟阈值。最短路是本候选入口集合中的最小值，不能保证覆盖所有未收录入口。',
            '居民区及办公等主样本候选范围为站点中心1公里；学生校门代表点允许至1.5公里并单独标记。南昌航空大学前湖校区父POI入口距站约1043米，因此纳入学生扩展样本；名为北门的公交POI并未当作校门。学生组与其他组的筛选范围不同，必须分组比较，不能用混合比例推断空间公平性。',
            '样本属于目的性案例选择，各站类别和数量不同；比例只描述所选样本，不能据此判断全站居民、学生覆盖率或功能类型的因果差异。学校类可能含托育、医疗类可能含诊所，以实际对象名称为准。','',
@@ -51,11 +51,28 @@ def main():
         a=next(s for s in summaries if s['station']==station and s['commuter_group']=='全部样本' and s['speed_kmh']==4.5 and s['threshold_min']==10)
         b=next(s for s in summaries if s['station']==station and s['commuter_group']=='全部样本' and s['speed_kmh']==4.5 and s['threshold_min']==15)
         lines.append(f'|{station}|{a["samples"]}|{a["model_covered"]}|{b["model_covered"]}|{a["unknown"]}|{b["unknown"]}|')
+    if data.get('station_catalog'):
+        catalog = data['station_catalog']
+        counts = Counter(row.get('analysis_status', 'pending') for row in catalog)
+        labels = {'analyzed':'已分析', 'needs_review':'有分析数据、部分路线待核查', 'pending':'待采集', 'no_entrances':'缺少合格入口', 'no_samples':'无合格样本', 'failed':'采集或核验失败'}
+        lines.extend(['', '## 全网分批导入进度', '',
+            f'目录共{len(catalog)}个独立站点；换乘站在所属线路中均可选择，但全网只计一次。有样本分析的站点为{len(stations)}个。',
+            '状态：' + '；'.join(labels.get(k,k) + f' {v}站' for k,v in counts.items()) + '。',
+            '待采集、缺少入口、无合格样本与核验失败均不代表步行不可达；部分路线异常的站点保留未知判定，不用删除异常记录提高通过率。',
+            '分批采样延续住宅最多4、办公最多2、学生入口最多2；不足时如实记录。未进行全站周边POI普查，各站样本不是人口总体。',
+            '', '|线路|目录站位|有分析数据站位|', '|---|---:|---:|'])
+        for line in sorted({line for row in catalog for line in row['lines']}):
+            members = [row for row in catalog if line in row['lines']]
+            lines.append(f'|{line}|{len(members)}|{sum(row["station"] in stations for row in members)}|')
+        pending = [row for row in catalog if row.get('analysis_status') != 'analyzed']
+        if pending:
+            lines.extend(['', '|未完全验证站点|状态|', '|---|---|'])
+            lines.extend(f'|{row["station"]}|{labels.get(row.get("analysis_status"), "待核验") }|' for row in pending)
     round_stations = [name for name in ['奥体中心', '谢家村', '双港'] if name in stations]
     if round_stations:
         round_samples = [row for row in data['samples'] if row['station'] in round_stations]
         round_routes = [row for row in data['routes'] if row['station'] in round_stations]
-        lines.extend(['', '## 本轮新增三站', '',
+        lines.extend(['', '## 第二轮三站试点（历史批次）', '',
             '新增' + '、'.join(round_stations) + f'，共{len(round_samples)}条站点—起点样本、{len(round_routes)}条路线。三站父POI详情与原站表均确认属于1号线；入口采用编号及父ID匹配，不把地图收录等同现场开放。',
             '新增样本按住宅4、办公2、学生最多2的配额抽取，并核对POI主类型；兼类餐馆、商户、旅馆、校园宿舍、中专及内部培训机构不作为对应类型的替代样本。居民与办公入口距站中心最多1公里，学生最多1.5公里。',
             '旧6站沿用上一轮快照；新增站采用本轮采样。轮次间采集时间与分类核验程度不同，不据此做总体覆盖率或因果推断。高校入口均仍为父POI字段代理，未经独立校门或现场确认。',

@@ -1,0 +1,2543 @@
+{
+  "schema_version": "1.0.0",
+  "verified_on": "2026-10-05",
+  "scope_note": "南昌地铁现运营1—4号线目录：113个去重站点、122个线路站位、9个换乘站。含2025-06-28开通的19座延长线站。运营范围根据官方113站统计与MetroMan逐站名单交叉核对；这不是实时运营公告，也不代表113站均已完成步行接驳分析。站点坐标沿用既有审计表，采集日期未知。",
+  "sources": [
+    {
+      "title": "南昌市交通运输局：南昌市轨道交通2025年度服务质量评价结果公布",
+      "url": "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+      "role": "official_operating_network_count"
+    },
+    {
+      "title": "南昌轨道交通集团：运营线路",
+      "url": "https://www.ncmtr.com/dtxl/2.html",
+      "role": "official_network_count_search_index; direct access returned 403"
+    },
+    {
+      "title": "南昌市人民政府：南昌地铁1、2号线延长线6月28日开通初期运营",
+      "url": "https://www.nc.gov.cn/ncszf/jrnc/202506/6a6965e2ea4f497e8597b0475f74439c.shtml",
+      "role": "official_extension_opening"
+    },
+    {
+      "title": "MetroMan: Nanchang Metro Station List",
+      "url": "https://www.metroman.cn/en/cities/nanchang/stations",
+      "role": "complete_station_names_and_line_membership_crosscheck"
+    },
+    {
+      "title": "西湖区人民政府：南昌地铁1号线时刻表",
+      "url": "https://xhq.nc.gov.cn/xhqrmzf/xzxh/201708/f2f038cf937d476984fdbb5b0c032d0c.shtml",
+      "role": "official_original_line_1_station_names"
+    },
+    {
+      "title": "南昌市国资委：南昌地铁3条延长线",
+      "url": "https://gzw.nc.gov.cn/ncsgzw/gzdt/202408/752834d0c8a341a0ab98ebece4c25674.shtml",
+      "role": "official_northern_extension_station_names"
+    }
+  ],
+  "stations": [
+    {
+      "station": "万寿宫",
+      "station_id": "BV10563761",
+      "lng": 115.885883,
+      "lat": 28.675086,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 19
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "万寿宫(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "八一馆",
+      "station_id": "BV10274816",
+      "lng": 115.891523,
+      "lat": 28.675659,
+      "lines": [
+        "1号线",
+        "3号线"
+      ],
+      "line_orders": {
+        "1号线": 20,
+        "3号线": 14
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "八一馆(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "地铁大厦",
+      "station_id": "BV10274812",
+      "lng": 115.852386,
+      "lat": 28.684076,
+      "lines": [
+        "1号线",
+        "2号线"
+      ],
+      "line_orders": {
+        "1号线": 16,
+        "2号线": 17
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "地铁大厦(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "南昌西站",
+      "station_id": "BV10274825",
+      "lng": 115.793362,
+      "lat": 28.623431,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 9
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "南昌西站(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "滕王阁",
+      "station_id": "BV10563760",
+      "lng": 115.877788,
+      "lat": 28.673301,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 18
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "滕王阁(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "南昌火车站",
+      "station_id": "BV10914107",
+      "lng": 115.921071,
+      "lat": 28.66318,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 26
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "南昌火车站(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "卫东",
+      "station_id": "BV10585803",
+      "lng": 115.848985,
+      "lat": 28.690856,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 15
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "卫东(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "八一广场",
+      "station_id": "BV10272818",
+      "lng": 115.902665,
+      "lat": 28.67514,
+      "lines": [
+        "1号线",
+        "2号线"
+      ],
+      "line_orders": {
+        "1号线": 21,
+        "2号线": 23
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "八一广场(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "学府大道东",
+      "station_id": "BV10274829",
+      "lng": 115.839123,
+      "lat": 28.659244,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 15
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "学府大道东(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "新洪城大市场",
+      "station_id": "BV10805447",
+      "lng": 115.850686,
+      "lat": 28.606035,
+      "lines": [
+        "4号线"
+      ],
+      "line_orders": {
+        "4号线": 10
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "新洪城大市场(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "翠苑路",
+      "station_id": "BV10273207",
+      "lng": 115.846675,
+      "lat": 28.67262,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 16
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "翠苑路(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "银三角北",
+      "station_id": "BV10689053",
+      "lng": 115.934838,
+      "lat": 28.520919,
+      "lines": [
+        "3号线"
+      ],
+      "line_orders": {
+        "3号线": 1
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "银三角北(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "秋水广场",
+      "station_id": "BV10274813",
+      "lng": 115.859973,
+      "lat": 28.681095,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 17
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "秋水广场(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "阳明公园",
+      "station_id": "BV10914112",
+      "lng": 115.891286,
+      "lat": 28.687954,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 20
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "阳明公园(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "双港",
+      "station_id": "BV10274808",
+      "lng": 115.86114,
+      "lat": 28.743126,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 9
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "双港(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "丁公路北",
+      "station_id": "BV10274817",
+      "lng": 115.913332,
+      "lat": 28.673933,
+      "lines": [
+        "1号线",
+        "4号线"
+      ],
+      "line_orders": {
+        "1号线": 22,
+        "4号线": 20
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "丁公路北(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "太子殿",
+      "station_id": "BV10274823",
+      "lng": 116.011201,
+      "lat": 28.675011,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 30
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "太子殿(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "艾溪湖东",
+      "station_id": "BV10274822",
+      "lng": 115.993489,
+      "lat": 28.674697,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 29
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "艾溪湖东(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "西站南广场",
+      "station_id": "BV10759017",
+      "lng": 115.790539,
+      "lat": 28.618386,
+      "lines": [
+        "2号线",
+        "4号线"
+      ],
+      "line_orders": {
+        "2号线": 8,
+        "4号线": 6
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "西站南广场(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "瑶湖西",
+      "station_id": "BV10563762",
+      "lng": 116.038354,
+      "lat": 28.672109,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 32
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "瑶湖西(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "南昌东站",
+      "station_id": "BV11492870",
+      "lng": 116.01846,
+      "lat": 28.614067,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 37
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "南昌东站(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "珠江路",
+      "station_id": "BV10274810",
+      "lng": 115.875913,
+      "lat": 28.707524,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 12
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "珠江路(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "高新大道",
+      "station_id": "BV10274820",
+      "lng": 115.960385,
+      "lat": 28.674424,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 27
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "高新大道(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "谢家村",
+      "station_id": "BV10272881",
+      "lng": 115.940696,
+      "lat": 28.674259,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 25
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "谢家村(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "观洲",
+      "station_id": "BV10805455",
+      "lng": 115.863173,
+      "lat": 28.632342,
+      "lines": [
+        "4号线"
+      ],
+      "line_orders": {
+        "4号线": 12
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "观洲(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "奥体中心",
+      "station_id": "BV10563757",
+      "lng": 116.024731,
+      "lat": 28.674482,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 31
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "奥体中心(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "国体中心",
+      "station_id": "BV10273894",
+      "lng": 115.816739,
+      "lat": 28.622378,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 11
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "国体中心(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "青山路口",
+      "station_id": "BV10272831",
+      "lng": 115.901589,
+      "lat": 28.686554,
+      "lines": [
+        "2号线",
+        "3号线"
+      ],
+      "line_orders": {
+        "2号线": 21,
+        "3号线": 16
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "青山路口(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "丁公路南",
+      "station_id": "BV10274834",
+      "lng": 115.91242,
+      "lat": 28.663236,
+      "lines": [
+        "2号线",
+        "4号线"
+      ],
+      "line_orders": {
+        "2号线": 25,
+        "4号线": 19
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "丁公路南(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "东新",
+      "station_id": "BV10805445",
+      "lng": 115.839267,
+      "lat": 28.597913,
+      "lines": [
+        "4号线"
+      ],
+      "line_orders": {
+        "4号线": 9
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "东新(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "鱼尾洲",
+      "station_id": "BV10805444",
+      "lng": 116.001967,
+      "lat": 28.709616,
+      "lines": [
+        "4号线"
+      ],
+      "line_orders": {
+        "4号线": 29
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "鱼尾洲(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "麻丘",
+      "station_id": "BV11492863",
+      "lng": 116.078631,
+      "lat": 28.66657,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 34
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "麻丘(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "复兴大道东",
+      "station_id": "BV09098818",
+      "lng": 115.912332,
+      "lat": 28.576072,
+      "lines": [
+        "3号线"
+      ],
+      "line_orders": {
+        "3号线": 5
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "复兴大道东(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "辛家庵",
+      "station_id": "BV10914110",
+      "lng": 115.93957,
+      "lat": 28.659337,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 28
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "辛家庵(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "龙岗",
+      "station_id": "BV10274826",
+      "lng": 115.802987,
+      "lat": 28.623161,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 10
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "龙岗(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "十字街",
+      "station_id": "BV10689052",
+      "lng": 115.905842,
+      "lat": 28.653894,
+      "lines": [
+        "3号线"
+      ],
+      "line_orders": {
+        "3号线": 11
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "十字街(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "江铃",
+      "station_id": "BV10689063",
+      "lng": 115.907392,
+      "lat": 28.62428,
+      "lines": [
+        "3号线"
+      ],
+      "line_orders": {
+        "3号线": 9
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "江铃(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "昌北机场",
+      "station_id": "BV11624892",
+      "lng": 115.918586,
+      "lat": 28.855564,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 1
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "昌北机场(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "李巷",
+      "station_id": "BV11492871",
+      "lng": 115.957776,
+      "lat": 28.643979,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 31
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "李巷(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "庐山南大道",
+      "station_id": "BV10563759",
+      "lng": 115.865675,
+      "lat": 28.70141,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 13
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "庐山南大道(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "中堡",
+      "station_id": "BV10805449",
+      "lng": 115.753264,
+      "lat": 28.62331,
+      "lines": [
+        "4号线"
+      ],
+      "line_orders": {
+        "4号线": 4
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "中堡(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "礼庄山",
+      "station_id": "BV10805443",
+      "lng": 115.771718,
+      "lat": 28.62549,
+      "lines": [
+        "4号线"
+      ],
+      "line_orders": {
+        "4号线": 5
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "礼庄山(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "八大山人",
+      "station_id": "BV10689055",
+      "lng": 115.908447,
+      "lat": 28.601805,
+      "lines": [
+        "3号线"
+      ],
+      "line_orders": {
+        "3号线": 7
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "八大山人(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "绳金塔",
+      "station_id": "BV10689045",
+      "lng": 115.901415,
+      "lat": 28.658241,
+      "lines": [
+        "3号线",
+        "4号线"
+      ],
+      "line_orders": {
+        "3号线": 12,
+        "4号线": 17
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "绳金塔(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "六眼井",
+      "station_id": "BV10689060",
+      "lng": 115.893928,
+      "lat": 28.669774,
+      "lines": [
+        "3号线"
+      ],
+      "line_orders": {
+        "3号线": 13
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "六眼井(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "沥山",
+      "station_id": "BV10689051",
+      "lng": 115.915972,
+      "lat": 28.556331,
+      "lines": [
+        "3号线"
+      ],
+      "line_orders": {
+        "3号线": 4
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "沥山(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "永叔路",
+      "station_id": "BV10914111",
+      "lng": 115.90533,
+      "lat": 28.666803,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 24
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "永叔路(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "国博",
+      "station_id": "BV10767718",
+      "lng": 115.79587,
+      "lat": 28.608219,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 7
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "国博(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "雅苑路",
+      "station_id": "BV10914113",
+      "lng": 115.857386,
+      "lat": 28.692061,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 18
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "雅苑路(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "长江路",
+      "station_id": "BV10274809",
+      "lng": 115.879619,
+      "lat": 28.717481,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 11
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "长江路(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "桃苑",
+      "station_id": "BV10805458",
+      "lng": 115.889983,
+      "lat": 28.659711,
+      "lines": [
+        "4号线"
+      ],
+      "line_orders": {
+        "4号线": 16
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "桃苑(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "师大南路",
+      "station_id": "BV10602594",
+      "lng": 115.924203,
+      "lat": 28.674034,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 23
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "师大南路(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "前湖大道",
+      "station_id": "BV10274828",
+      "lng": 115.834939,
+      "lat": 28.651869,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 14
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "前湖大道(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "坛子口",
+      "station_id": "BV10805453",
+      "lng": 115.909127,
+      "lat": 28.657158,
+      "lines": [
+        "4号线"
+      ],
+      "line_orders": {
+        "4号线": 18
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "坛子口(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "孔目湖",
+      "station_id": "BV10585802",
+      "lng": 115.857961,
+      "lat": 28.732878,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 10
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "孔目湖(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "柏岗",
+      "station_id": "BV10689061",
+      "lng": 115.918121,
+      "lat": 28.544673,
+      "lines": [
+        "3号线"
+      ],
+      "line_orders": {
+        "3号线": 3
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "柏岗(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "起凤路",
+      "station_id": "BV10805452",
+      "lng": 115.917038,
+      "lat": 28.702412,
+      "lines": [
+        "4号线"
+      ],
+      "line_orders": {
+        "4号线": 23
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "起凤路(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "南昌大桥东",
+      "station_id": "BV10805448",
+      "lng": 115.877575,
+      "lat": 28.655413,
+      "lines": [
+        "4号线"
+      ],
+      "line_orders": {
+        "4号线": 15
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "南昌大桥东(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "墩子塘",
+      "station_id": "BV10689056",
+      "lng": 115.894791,
+      "lat": 28.684957,
+      "lines": [
+        "3号线"
+      ],
+      "line_orders": {
+        "3号线": 15
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "墩子塘(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "青山湖大道",
+      "station_id": "BV10274819",
+      "lng": 115.948836,
+      "lat": 28.674363,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 26
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "青山湖大道(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "白马山",
+      "station_id": "BV10805462",
+      "lng": 115.722486,
+      "lat": 28.630675,
+      "lines": [
+        "4号线"
+      ],
+      "line_orders": {
+        "4号线": 1
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "白马山(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "红谷中大道",
+      "station_id": "BV10914109",
+      "lng": 115.867006,
+      "lat": 28.691703,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 19
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "红谷中大道(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "国威路",
+      "station_id": "BV10689048",
+      "lng": 115.941472,
+      "lat": 28.687165,
+      "lines": [
+        "3号线"
+      ],
+      "line_orders": {
+        "3号线": 19
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "国威路(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "斗门",
+      "station_id": "BV10689047",
+      "lng": 115.927796,
+      "lat": 28.528927,
+      "lines": [
+        "3号线"
+      ],
+      "line_orders": {
+        "3号线": 2
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "斗门(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "京家山",
+      "station_id": "BV10759632",
+      "lng": 115.906513,
+      "lat": 28.639218,
+      "lines": [
+        "3号线"
+      ],
+      "line_orders": {
+        "3号线": 10
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "京家山(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "人民公园",
+      "station_id": "BV10805450",
+      "lng": 115.912328,
+      "lat": 28.684019,
+      "lines": [
+        "4号线"
+      ],
+      "line_orders": {
+        "4号线": 21
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "人民公园(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "安丰",
+      "station_id": "BV10805446",
+      "lng": 115.809017,
+      "lat": 28.610946,
+      "lines": [
+        "4号线"
+      ],
+      "line_orders": {
+        "4号线": 8
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "安丰(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "沈桥",
+      "station_id": "BV11492868",
+      "lng": 115.97193,
+      "lat": 28.640865,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 32
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "沈桥(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "北沥",
+      "station_id": "BV10805456",
+      "lng": 115.972525,
+      "lat": 28.715457,
+      "lines": [
+        "4号线"
+      ],
+      "line_orders": {
+        "4号线": 27
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "北沥(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "丁家洲",
+      "station_id": "BV10805440",
+      "lng": 115.856715,
+      "lat": 28.622645,
+      "lines": [
+        "4号线"
+      ],
+      "line_orders": {
+        "4号线": 11
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "丁家洲(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "灌婴路",
+      "station_id": "BV10805454",
+      "lng": 115.872805,
+      "lat": 28.648037,
+      "lines": [
+        "4号线"
+      ],
+      "line_orders": {
+        "4号线": 14
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "灌婴路(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "顺外",
+      "station_id": "BV10914108",
+      "lng": 115.928124,
+      "lat": 28.663683,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 27
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "顺外(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "京东大道",
+      "station_id": "BV10689046",
+      "lng": 115.972495,
+      "lat": 28.692445,
+      "lines": [
+        "3号线"
+      ],
+      "line_orders": {
+        "3号线": 22
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "京东大道(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "梁万",
+      "station_id": "BV10689058",
+      "lng": 115.960352,
+      "lat": 28.690277,
+      "lines": [
+        "3号线"
+      ],
+      "line_orders": {
+        "3号线": 21
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "梁万(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "施尧",
+      "station_id": "BV10689044",
+      "lng": 115.907843,
+      "lat": 28.615182,
+      "lines": [
+        "3号线"
+      ],
+      "line_orders": {
+        "3号线": 8
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "施尧(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "汇贤大道",
+      "station_id": "BV09322212",
+      "lng": 115.882005,
+      "lat": 28.806308,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 2
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "汇贤大道(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "彭家桥",
+      "station_id": "BV10274114",
+      "lng": 115.933419,
+      "lat": 28.674227,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 24
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "彭家桥(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "绿茵路",
+      "station_id": "BV10273008",
+      "lng": 115.858056,
+      "lat": 28.697587,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 14
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "绿茵路(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "福州路",
+      "station_id": "BV10914106",
+      "lng": 115.903284,
+      "lat": 28.680642,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 22
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "福州路(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "楞上",
+      "station_id": "BV11492865",
+      "lng": 115.942831,
+      "lat": 28.650701,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 29
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "楞上(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "九龙湖南",
+      "station_id": "BV10767719",
+      "lng": 115.793412,
+      "lat": 28.579703,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 4
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "九龙湖南(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "邓埠",
+      "station_id": "BV10689050",
+      "lng": 115.909871,
+      "lat": 28.589661,
+      "lines": [
+        "3号线"
+      ],
+      "line_orders": {
+        "3号线": 6
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "邓埠(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "生米",
+      "station_id": "BV10767722",
+      "lng": 115.790844,
+      "lat": 28.571832,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 3
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "生米(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "艾溪湖西",
+      "station_id": "BV10274821",
+      "lng": 115.973685,
+      "lat": 28.674424,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 28
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "艾溪湖西(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "卧龙山",
+      "station_id": "BV10274827",
+      "lng": 115.822477,
+      "lat": 28.631606,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 12
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "卧龙山(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "南齿",
+      "station_id": "BV09164582",
+      "lng": 115.851141,
+      "lat": 28.765791,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 6
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "南齿(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "民园路西",
+      "station_id": "BV10805464",
+      "lng": 115.947549,
+      "lat": 28.718465,
+      "lines": [
+        "4号线"
+      ],
+      "line_orders": {
+        "4号线": 25
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "民园路西(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "上沙沟",
+      "station_id": "BV10689057",
+      "lng": 115.911541,
+      "lat": 28.694437,
+      "lines": [
+        "3号线",
+        "4号线"
+      ],
+      "line_orders": {
+        "3号线": 17,
+        "4号线": 22
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "上沙沟(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "北罗",
+      "station_id": "BV09324079",
+      "lng": 115.949706,
+      "lat": 28.647897,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 30
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "北罗(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "罗家集",
+      "station_id": "BV11492861",
+      "lng": 115.989514,
+      "lat": 28.633385,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 34
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "罗家集(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "方志敏大道",
+      "station_id": "BV09322210",
+      "lng": 115.855573,
+      "lat": 28.75894,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 7
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "方志敏大道(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "云天路",
+      "station_id": "BV10805442",
+      "lng": 115.867984,
+      "lat": 28.639402,
+      "lines": [
+        "4号线"
+      ],
+      "line_orders": {
+        "4号线": 13
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "云天路(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "七里",
+      "station_id": "BV10805451",
+      "lng": 115.927472,
+      "lat": 28.709415,
+      "lines": [
+        "4号线"
+      ],
+      "line_orders": {
+        "4号线": 24
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "七里(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "怀玉山大道",
+      "station_id": "BV10805463",
+      "lng": 115.799433,
+      "lat": 28.615132,
+      "lines": [
+        "4号线"
+      ],
+      "line_orders": {
+        "4号线": 7
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "怀玉山大道(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "观田",
+      "station_id": "BV09257489",
+      "lng": 115.980876,
+      "lat": 28.638231,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 33
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "观田(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "科技城",
+      "station_id": "BV10874343",
+      "lng": 115.982102,
+      "lat": 28.715406,
+      "lines": [
+        "4号线"
+      ],
+      "line_orders": {
+        "4号线": 28
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "科技城(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "青山湖西",
+      "station_id": "BV10689049",
+      "lng": 115.923255,
+      "lat": 28.693315,
+      "lines": [
+        "3号线"
+      ],
+      "line_orders": {
+        "3号线": 18
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "青山湖西(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "火炬",
+      "station_id": "BV10805461",
+      "lng": 115.959803,
+      "lat": 28.716623,
+      "lines": [
+        "4号线"
+      ],
+      "line_orders": {
+        "4号线": 26
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "火炬(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "建业大道",
+      "station_id": "BV09164584",
+      "lng": 115.880506,
+      "lat": 28.792796,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 3
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "建业大道(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "火炬广场",
+      "station_id": "BV10689062",
+      "lng": 115.949586,
+      "lat": 28.688182,
+      "lines": [
+        "3号线"
+      ],
+      "line_orders": {
+        "3号线": 20
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "火炬广场(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "南路",
+      "station_id": "BV10767717",
+      "lng": 115.789286,
+      "lat": 28.552708,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 1
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "南路(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "瑶湖东",
+      "station_id": "BV11492875",
+      "lng": 116.061335,
+      "lat": 28.666177,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 33
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "瑶湖东(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "裕丰街",
+      "station_id": "BV10805441",
+      "lng": 115.730482,
+      "lat": 28.620635,
+      "lines": [
+        "4号线"
+      ],
+      "line_orders": {
+        "4号线": 2
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "裕丰街(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "冠山",
+      "station_id": "BV09164586",
+      "lng": 115.861531,
+      "lat": 28.772526,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 5
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "冠山(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "璜溪",
+      "station_id": "BV10805460",
+      "lng": 115.740447,
+      "lat": 28.620206,
+      "lines": [
+        "4号线"
+      ],
+      "line_orders": {
+        "4号线": 3
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "璜溪(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "鹰潭街",
+      "station_id": "BV10767721",
+      "lng": 115.799006,
+      "lat": 28.599043,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 6
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "鹰潭街(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "定子山",
+      "station_id": "BV09322211",
+      "lng": 115.874417,
+      "lat": 28.772147,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 4
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "定子山(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "蛟桥",
+      "station_id": "BV11492869",
+      "lng": 115.858957,
+      "lat": 28.751591,
+      "lines": [
+        "1号线"
+      ],
+      "line_orders": {
+        "1号线": 8
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "蛟桥(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "枫下",
+      "station_id": "BV11492862",
+      "lng": 115.997133,
+      "lat": 28.622442,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 35
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "枫下(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "市民中心",
+      "station_id": "BV10767720",
+      "lng": 115.79619,
+      "lat": 28.593435,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 5
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "市民中心(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "岭北",
+      "station_id": "BV10273896",
+      "lng": 115.830145,
+      "lat": 28.641038,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 13
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "岭北(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "南昌中学",
+      "station_id": "BV09359724",
+      "lng": 115.789363,
+      "lat": 28.56059,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 2
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "南昌中学(地铁站)",
+      "verified_on": "2026-10-05"
+    },
+    {
+      "station": "国展中心",
+      "station_id": "BV09324937",
+      "lng": 116.006438,
+      "lat": 28.616119,
+      "lines": [
+        "2号线"
+      ],
+      "line_orders": {
+        "2号线": 36
+      },
+      "operating_status": "confirmed_operating",
+      "verification_basis": "Official network operational count cross-checked against the complete MetroMan station directory; not a live service status feed.",
+      "evidence_urls": [
+        "https://ncjt.nc.gov.cn/ncsjtj/gkgsgg/202601/c365e1d7cc1842bfa0ae6b00e388a51b.shtml",
+        "https://www.metroman.cn/en/cities/nanchang/stations"
+      ],
+      "coordinate_system": "GCJ-02 (source inferred)",
+      "coordinate_source": "stations_audit.csv (legacy POI coordinates; not independently surveyed)",
+      "source_station_name": "国展中心(地铁站)",
+      "verified_on": "2026-10-05"
+    }
+  ]
+}

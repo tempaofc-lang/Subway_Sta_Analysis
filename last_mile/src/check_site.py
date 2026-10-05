@@ -68,8 +68,19 @@ def main():
     manifest = json.loads((site / 'api/v1/manifest.json').read_text(encoding='utf-8'))
     stations = json.loads((site / 'api/v1/stations.json').read_text(encoding='utf-8'))['stations']
     require(manifest['schema_version'] == '1.0.0' and manifest['coordinate_system'] == 'GCJ-02', 'Manifest contract differs')
-    require(manifest['counts'] == {'stations': len(stations), 'samples': len(data['samples']), 'entrances': len(data['entrances']), 'routes': len(data['routes'])}, 'Manifest counts differ')
+    require(manifest['counts'] == {'stations': len({s['station'] for s in data['samples']}), 'samples': len(data['samples']), 'entrances': len(data['entrances']), 'routes': len(data['routes'])}, 'Manifest counts differ')
     require(sum(s['sample_count'] for s in stations) == len(data['samples']), 'Station API counts differ')
+    unique(stations, ('station',))
+    require(manifest['catalog_station_count'] == len(stations), 'Catalog total differs')
+    for station in stations:
+        require(isinstance(station['lines'], list), 'Station lines must be a list')
+        if station['sample_count'] == 0:
+            require(not station['summary'], 'Unanalyzed station must not have coverage statistics')
+    line_api = json.loads((site / 'api/v1/lines.json').read_text(encoding='utf-8'))['lines']
+    for line in line_api:
+        expected_ids = {s['station_id'] for s in stations if line['line'] in s['lines']}
+        require(set(line['station_ids']) == expected_ids and len(line['station_ids']) == len(expected_ids), 'Line membership or interchange duplication')
+
     page = (site / 'index.html').read_text(encoding='utf-8')
     require('__DATA__' not in page, 'Unexpanded template')
     embedded = json.dumps(data, ensure_ascii=False).replace('<', '\\u003c').replace('\u2028', '\\u2028').replace('\u2029', '\\u2029')

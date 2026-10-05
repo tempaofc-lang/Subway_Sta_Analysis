@@ -78,19 +78,27 @@ def new_entrances(c, station):
             match = re.search(r'(\d+|[A-Z])(?:号)?(?:出入口|口)', p.get('name',''))
             label = match.group(1) if match else ''
             parent_match = string(p, 'parent') == station['station_id']
+            poi_name = string(p, 'name')
+            exit_only = '出口' in poi_name and '入口' not in poi_name
+            named_match = re.search(r'((?:(?:东北|东南|西北|西南|[东西南北])(?:侧)?)?(?:出入口|入口)|(?:东北|东南|西北|西南|[东西南北])(?:侧)?口)(?=[)）\s]*$)', poi_name)
+            named_eligible = bool(not label and named_match and parent_match and name in poi_name
+                                  and string(p, 'typecode').split('|')[0] == '150501' and not exit_only)
+            numbered_eligible = bool(label and parent_match and not exit_only)
+            if named_eligible:
+                label = named_match.group(1)
             found[p['id']] = {'station_id': station['station_id'], 'station': name,
                 'entrance_poi_id': p['id'], 'entrance_name': p.get('name',''),
                 'typecode': string(p,'typecode'), 'lng': point[0], 'lat': point[1],
                 'coordinate_system': 'GCJ-02', 'parent_poi_id': string(p,'parent'),
                 'distance_to_station_m': round(distance(origin,point),2), 'name_matches_station': name in p.get('name',''),
-                'verification_status': 'map_parent_numbered_candidate', 'open_status': 'excluded_from_scope',
+                'verification_status': 'map_parent_named_entry_candidate' if named_eligible else 'map_parent_numbered_candidate', 'open_status': 'excluded_from_scope',
                 'field_verified': False, 'request_ids': rid, 'source_url': 'https://ditu.amap.com/place/'+p['id'],
                 'collected_at_utc': when, 'entrance_label': label, 'parent_matches_station': parent_match,
-                'both_search_methods_returned': False, 'desk_evidence_level': 'official_map_parent_number',
-                'access_class': 'station_entrance_map_parent_numbered' if label and parent_match else 'unclassified_access_requires_check',
+                'both_search_methods_returned': False, 'desk_evidence_level': 'official_map_parent_explicit_entry_name' if named_eligible else 'official_map_parent_number',
+                'access_class': 'station_entrance_map_parent_named_entry' if named_eligible else 'station_entrance_map_parent_numbered' if numbered_eligible else 'unclassified_access_requires_check',
                 'evidence_url': 'https://ditu.amap.com/place/'+p['id'], 'evidence_date': when[:10],
                 'eligible_for_verified_open_analysis': False, 'next_check': '门禁及临时封路不纳入本轮；导航几何一致性另检',
-                'baseline_eligible': bool(label and parent_match), 'source_method': 'official_place_around_text_parent_matching'}
+                'baseline_eligible': numbered_eligible or named_eligible, 'source_method': 'official_place_around_text_parent_matching'}
     return list(found.values())
 
 
@@ -107,7 +115,8 @@ def residential_office(c, station):
                 if p.get('id'):
                     all_pois.setdefault(p['id'],(p,rid,when))
             good = [p for p,_,_ in all_pois.values() if coordinates(string(p,'entr_location'))]
-            if len(good) >= quota*3 or len(pois)<25:
+            raw_returned = c.queries[-1]['returned'] if getattr(c, 'queries', None) else len(pois)
+            if len(good) >= quota*3 or raw_returned < 25:
                 break
         candidates = []
         entities = set()

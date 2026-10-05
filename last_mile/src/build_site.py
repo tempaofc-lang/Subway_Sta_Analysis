@@ -45,15 +45,27 @@ def main():
             shutil.copyfile(path, target)
     api = SITE / 'api/v1'
     dump(api / 'results.json', data)
+    analyzed_names = {row['station'] for row in data['samples']}
+    catalog = data.get('station_catalog') or [{'station': name} for name in sorted(analyzed_names)]
     stations = []
-    for name in sorted({s['station'] for s in data['samples']}):
+    for entry in catalog:
+        name = entry['station']
         station_entrances = [e for e in data['entrances'] if e['station'] == name]
-        stations.append({'station': name, 'station_id': station_entrances[0]['station_id'],
+        stations.append({**entry, 'station': name,
+                         'station_id': entry.get('station_id') or (station_entrances[0]['station_id'] if station_entrances else None),
+                         'lines': entry.get('lines', []),
+                         'analysis_status': entry.get('analysis_status', 'analyzed' if name in analyzed_names else 'pending'),
                          'sample_count': sum(s['station'] == name for s in data['samples']),
                          'entrance_count': len(station_entrances),
                          'route_count': sum(r['station'] == name for r in data['routes']),
                          'summary': [r for r in data['station_summary'] if r['station'] == name]})
     dump(api / 'stations.json', {'schema_version': '1.0.0', 'stations': stations})
+    line_names = sorted({line for row in stations for line in row['lines']})
+    dump(api / 'lines.json', {'schema_version': '1.0.0', 'lines': [
+        {'line': line, 'station_ids': [row['station_id'] for row in stations if line in row['lines']],
+         'catalog_station_count': sum(line in row['lines'] for row in stations),
+         'analyzed_station_count': sum(line in row['lines'] and row['station'] in analyzed_names for row in stations)}
+        for line in line_names], 'interchange_note': 'Transfer stations belong to multiple lines; network totals deduplicate station IDs.'})
     downloads = SITE / 'downloads'
     downloads.mkdir()
     for name in CSV_NAMES:
@@ -68,8 +80,9 @@ def main():
         'data_updated_at_meaning': 'Timestamp stored by the analysis pipeline; not a collection timestamp for every record.',
         'built_at_utc': datetime.now(timezone.utc).isoformat(),
         'source_sha256': hashlib.sha256(raw).hexdigest(),
-        'counts': {'stations': len(stations), 'samples': len(data['samples']), 'entrances': len(data['entrances']), 'routes': len(data['routes'])},
-        'endpoints': {'results': 'results.json', 'stations': 'stations.json'},
+        'catalog_station_count': len(stations),
+        'counts': {'stations': len(analyzed_names), 'samples': len(data['samples']), 'entrances': len(data['entrances']), 'routes': len(data['routes'])},
+        'endpoints': {'results': 'results.json', 'stations': 'stations.json', 'lines': 'lines.json'},
         'downloads': ['../../downloads/' + name + '.csv' for name in CSV_NAMES] + ['../../downloads/analysis-report.md'],
         'scenario_assumption': data['scenario_assumption'],
         'physical_passability_verified': data['quality'].get('physical_passability_verified', False),

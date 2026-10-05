@@ -25,3 +25,5 @@ last_mile/output/*
 !last_mile/output/expanded_results.json
 !last_mile/output/current_expansion_gate.json
 !last_mile/output/扩展站点步行接驳分析报告.md
+
+!last_mile/data/processed/network_stations.json

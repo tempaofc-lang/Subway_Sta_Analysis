@@ -20,7 +20,8 @@ python -m http.server 8000 --directory _site
 
 - `api/v1/manifest.json`：接口版本、坐标系、数据更新时间、构建时间、源文件 SHA-256、计数和下载索引。
 - `api/v1/results.json`：完整分析结果，保持 `expanded_results.json` 的已有字段结构。
-- `api/v1/stations.json`：`schema_version` 与 `stations` 数组；各站包括名称、站点 ID、样本/出入口/路线计数及分情景汇总。
+- `api/v1/stations.json`：完整站点目录，含多线路归属、分析状态、样本/出入口/路线计数与情景汇总；无样本站点汇总为空，不表示不可达。
+- `api/v1/lines.json`：各线路所属站点ID、目录站位数和有分析数据站位数；换乘站可属多线，全网总数去重。
 - `downloads/expanded_samples.csv`、`expanded_entrances.csv`、`expanded_accessibility.csv`、`expanded_group_summary.csv`：选定分析表。
 - `downloads/analysis-report.md`：扩展站点分析报告。
 
@@ -38,3 +39,25 @@ python -m http.server 8000 --directory _site
 
 工作流遵循 GitHub 官方自定义 Pages 工作流：
 https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages
+
+
+## 全网分批扩展（本机）
+
+目录为113个去重站点，来源与核验边界见 `last_mile/NETWORK_SCOPE.md`。API `manifest.counts.stations` 继续表示有样本分析的站点数量；`catalog_station_count` 表示完整目录规模。待采集/无入口/无样本与不可达是不同状态。
+
+在本仓库根目录，先查看计划，再执行本批；采集需要本地API凭证及历史缓存，不能在Pages构建中运行：
+
+```powershell
+python -B last_mile/src/network_expand.py plan --batch 1 --size 26
+python -B last_mile/src/network_expand.py collect --batch 1 --size 26 --budget 1500 --global-budget 6000
+python -B last_mile/src/network_check.py
+python -B last_mile/src/build_expanded_outputs.py
+python -B last_mile/src/build_site.py
+python -B last_mile/src/check_site.py
+```
+
+后续轮次依次使用新的 `--batch` 编号。同一批续跑固定原站点列表，`--budget` 为本批累计上限，不因重启清零；全任务累计不超过6000次（失败尝试也计入）。可用 `--line 1号线` 限定选站，批次中不能并行启动多个采集进程。`--retry-failed` 是明确的失败重试入口，不自动重复全部失败站。
+
+限额、API拒绝或连续网络故障会停止采集。此时可运行 `network_expand.py publish` 导出已完成站，再运行独立检查；未完成站继续以状态显示。断点、原始响应、预算账本与基线快照均只保存在本地忽略目录，不公开上传。
+
+每批验证原9站69样本/312路线保持不变；新增异常几何及缺路径保留未知，不删除异常记录来提高通过率。按线路选择是案例分组，不将样本统计解读为线路人口覆盖率。
