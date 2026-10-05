@@ -32,20 +32,21 @@ checks.catalog_deduplicated=options().length===new Set(DATA.station_catalog.map(
 checks.progress=document.getElementById('scope').textContent.includes('目录');
 for(const line of document.querySelectorAll('#line option')){
  change('line',line.value);
- checks['membership_'+line.value]=options().every(name=>line.value==='all'||DATA.station_catalog.some(s=>s.station===name&&s.lines.includes(line.value)));
+ const expected=new Set(DATA.station_catalog.filter(s=>line.value==='all'||s.lines.includes(line.value)).map(s=>s.station));
+ checks['membership_'+line.value]=options().length===expected.size&&options().every(name=>expected.has(name));
 }
 change('line','all');
 const analyzed=DATA.station_catalog.find(s=>s.analysis_status==='analyzed'&&DATA.samples.some(x=>x.station===s.station));
 if(analyzed){change('station',analyzed.station);document.querySelector('#rows button')?.click();checks.detail_selected=!!document.querySelector('#detail h2');change('speed','3.5');checks.detail_reset=!document.querySelector('#detail h2');change('speed','4.5')}
 for(const station of DATA.station_catalog.filter(s=>s.analysis_status!=='analyzed'&&!(s.analysis_status==='needs_review'&&DATA.scenarios.some(x=>x.station===s.station)))){
  change('station',station.station);
- checks['empty_'+station.analysis_status]=!document.querySelector('#rows button')&&!document.querySelector('#layer-routes polyline')&&!document.querySelector('#detail h2')&&document.getElementById('stats').textContent.includes('未分析不代表步行不可达')&&!document.getElementById('stats').textContent.includes('0 个');
+ checks['empty_'+station.station+'_'+station.analysis_status]=!document.querySelector('#rows button')&&!document.querySelector('#layer-routes polyline')&&!document.querySelector('#detail h2')&&document.getElementById('stats').textContent.includes('未分析不代表步行不可达')&&!document.getElementById('stats').textContent.includes('0 个');
 }
 for(const station of DATA.station_catalog.filter(s=>s.analysis_status==='needs_review'&&DATA.scenarios.some(x=>x.station===s.station))){
  change('station',station.station);change('group','all');change('speed','4.5');change('threshold','10');
- checks.review_data_visible=!!document.querySelector('#rows button')&&document.getElementById('stats').textContent.includes('个样本');
+ checks['review_data_visible_'+station.station]=!!document.querySelector('#rows button')&&document.getElementById('stats').textContent.includes('个样本');
  const gate=DATA.samples.find(s=>s.station===station.station&&s.point_basis==='university_gate_poi_parent_matched');
- if(gate){document.querySelector(`[data-sample="${gate.sample_id}"][data-surface="table"]`)?.click();checks.gate_basis=document.getElementById('detail').textContent.includes('未现场核验')&&!document.getElementById('detail').textContent.includes('未确认独立门')}
+ if(gate){document.querySelector(`[data-sample="${gate.sample_id}"][data-surface="table"]`)?.click();checks['gate_basis_'+station.station]=document.getElementById('detail').textContent.includes('未现场核验')&&!document.getElementById('detail').textContent.includes('未确认独立门')}
 }
 change('line','all');
 checks.no_horizontal_overflow=document.documentElement.scrollWidth<=innerWidth;

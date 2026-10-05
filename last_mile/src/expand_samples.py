@@ -102,7 +102,7 @@ def new_entrances(c, station):
     return list(found.values())
 
 
-def residential_office(c, station):
+def residential_office(c, station, *, strict_primary=False):
     name = normalize(station['station'])
     origin = (float(station['lng']), float(station['lat']))
     result = []
@@ -125,9 +125,16 @@ def residential_office(c, station):
             entity = string(p,'parent') or p['id']
             if not point or entity in entities or distance(origin,point)>1000:
                 continue
-            if category == '住宅' and (any(t in p['name'] for t in ['宿舍','学生公寓']) or
-                not any(t in p['name'] for t in ['园','苑','城','府','公寓','小区','花园','半岛','住宅'])):
-                continue
+            if category == '住宅':
+                if any(t in p['name'] for t in ['宿舍','学生公寓']):
+                    continue
+                if strict_primary:
+                    if string(p, 'typecode').split('|')[0] not in ['120300', '120301', '120302']:
+                        continue
+                    if any(t in p['name'] for t in ['菜馆','餐厅','餐饮','酒店','超市','烟酒','维修','有限公司','建设中','在建','后门店']):
+                        continue
+                elif not any(t in p['name'] for t in ['园','苑','城','府','公寓','小区','花园','半岛','住宅']):
+                    continue
             entities.add(entity)
             candidates.append({'station':name, 'category':category, 'sample_id':name+'_'+entity,
                 'name':p['name'], 'source_poi_id':p['id'], 'entity_id':entity, 'lng':point[0], 'lat':point[1],

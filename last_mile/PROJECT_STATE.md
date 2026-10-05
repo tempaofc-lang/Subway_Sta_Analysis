@@ -4,19 +4,21 @@
 
 ## 当前任务：全网113站分批导入与线路筛选（2026-10-06）
 
+**用户最新指示：第三批完成后停止采集，验证并推送上线；第四批及后续补查必须等待用户决定，不得自动启动。**
+
 - 用户要求几轮覆盖剩余所有地铁站并按线路选组，允许多子智能体。已向用户说明采用6000次新请求总上限，未收到其他预算；失败尝试计入，缓存不计入。不可突破上限或因续跑清零。
 - 目录核对为113独立站/9换乘；线路站位34/37/22/29。来源和核验边界见NETWORK_SCOPE.md；目录JSON为data/processed/network_stations.json。
 - 第一批26站用922次请求完成：24站analyzed、南昌西站no_entrances（非编号入口规则已修复）、南昌东站no_samples。发布快照为33个有数据站、228样本、976路线；原9站69样本312路线及情景不变，全部976路线几何检查通过。
-- 第二批已启动：batch 2 / size 27 / retry-missing / budget1500 / global-budget6000；包括补采南昌西和26个新站。恢复任务必须先读network_ledger.json及进程情况，不同时启动两个collector。
+- 第二批完成，用829次请求；合并后59个有数据站、392样本、1565路线，独立验证通过。第三批26站已完成，用868次请求，新增25个有分析数据站；汇贤大道无合格样本。合并后84站、563样本、2200路线；全网累计2619次请求。采集进程已结束，未启动第四批。恢复任务必须先读network_ledger.json及进程情况，不同时启动两个collector。
 - 断点：data/processed/network_ledger.json（只存状态与预算）；network_checkpoints（逐站证据/路径）；data/raw/network_sampling；基线output/history/network_before。均忽略不公开。
 - 执行：python -B last_mile/src/network_expand.py collect --batch N --size 26 --budget 1500 --global-budget 6000。同编号续跑固定名单和累计预算；--retry-missing仅重试no_entrances，--retry-failed显式重试failed。有中断可先publish输出已完成站，network_check独立验证。
 - 入口补丁：只在精确父ID、150501主类型、站名匹配下接纳明确非编号入口；纯出口不默认为可进站，邻站不混入。南昌西已缓存两条合格入口，无须重复核验请求。
 - 分页补丁：住宅/办公按照原始返回页长决定继续翻页，最多3页，不能用分类过滤后的长度判断末页。不会重算既有9站或已完成站。
 - 前端支持线路筛选、换乘去重、113目录/有分析数据进度和缺数据状态；有场景的needs_review保留已知/未知结果，无场景者空态。API新增lines.json；manifest.counts.stations仍表示有样本的站数，catalog_station_count另计目录数。
-- 发布前运行network_check、build_expanded_outputs、build_site、check_site；check_network_browser --page _site/index.html核验线路/空态与桌面手机。当前首批全部检查已通过。
-- 后续第三/四批各26新站，最后核对目录所有站是否已尝试；未能分析站须如实报告原因。不得把目录113当作113站均有可达性结果。
+- 发布前运行network_check、build_expanded_outputs、build_site、check_site；check_network_browser --page _site/index.html核验线路/空态与桌面手机。第三批数据独立验证、报告构建、站点检查及最终页面桌面/手机线路与逐站空态检查已通过；原69样本/312路线及情景不变，全部2200路线几何检查通过。
+- 本次仅完成第三批；第四批26站与南昌东/昌北机场等缺数据站补查留待用户决定。未能分析站如实保留状态，不得把目录113当作113站均有可达性结果。
 
-## 最新结果：第二轮扩站（2026-10-05）
+## 历史结果：第二轮扩站（2026-10-05）
 
 - 用户指定奥体中心，并授权由智能体选择另2站；最终新增1号线奥体中心、谢家村、双港。三站父POI详情及原站表均确认1号线。
 - 当前9站、69条站点—起点样本（居民35、学生10、其他24）、39个基础入口、312条路线。新三站各8样本，基础入口分别3/4/4个。

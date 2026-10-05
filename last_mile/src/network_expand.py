@@ -140,7 +140,7 @@ def station_collect(c, station, entry):
         if not any(e['baseline_eligible'] for e in entrances):
             entry.update(analysis_status='no_entrances', samples=[], routes=[])
             return
-        samples = residential_office(c, station)
+        samples = residential_office(c, station, strict_primary=True)
         students, discovery = universities(c, station)
         samples.extend(students)
         samples = list({s['sample_id']: s for s in samples}.values())
@@ -223,7 +223,9 @@ def run(args):
     baseline_path = BASE / 'output/expanded_results.json'
     baseline = load(baseline_path if baseline_path.exists() else ROOT / 'output/expanded_results.json')
     existing = {s['station'] for s in baseline['samples']}
-    retry_statuses = ({'failed'} if args.retry_failed else set()) | ({'no_entrances'} if args.retry_missing else set())
+    retry_statuses = (({'failed'} if args.retry_failed else set())
+                      | ({'no_entrances'} if args.retry_missing else set())
+                      | ({'no_samples'} if args.retry_empty else set()))
     candidates = [s for s in catalog if s['station'] not in existing and (ledger['stations'].get(s['station'], {}).get('analysis_status') not in TERMINAL or ledger['stations'].get(s['station'], {}).get('analysis_status') in retry_statuses)
                   and (not args.line or args.line in s['lines']) and s.get('operating_status') not in ['planned', 'under_construction', 'closed']]
     batch_id = str(args.batch)
@@ -278,4 +280,5 @@ if __name__ == '__main__':
     parser.add_argument('--global-budget', type=int, default=6000)
     parser.add_argument('--retry-failed', action='store_true', help='Explicitly retry failed station verification or sampling')
     parser.add_argument('--retry-missing', action='store_true', help='Explicitly resample no_entrances stations; preserve request cache and budgets')
+    parser.add_argument('--retry-empty', action='store_true', help='Explicitly resample no_samples stations; preserve request cache and budgets')
     run(parser.parse_args())
