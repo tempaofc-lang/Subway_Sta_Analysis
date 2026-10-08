@@ -3,6 +3,6 @@
   "route_pass_rate": 1.0,
   "model_expansion_gate_pass": true,
   "physical_access_assumed_for_scenario": true,
-  "station_count": 84,
-  "student_gate_samples": 82
+  "station_count": 109,
+  "student_gate_samples": 103
 }
